@@ -4,18 +4,14 @@ import bcrypt from 'bcryptjs'
 
 export const handleSignup = async (req , res) =>{
     try {
-        const {fullname , username , email , password} = req.body
+        const {firstName, lastName, phoneNumber , birthDate , email , password} = req.body
+
+        console.log(req.body)
         
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         if(!emailRegex.test(email)){
            return res.status(400).json({error: 'Invalid email'})
-        }
-
-        const excistingUser = await userModel.findOne({ username})
-
-        if(excistingUser){
-           return res.status(401).json({error: 'UserName is Taken'})
         }
 
         const excistingEmail = await userModel.findOne({email})
@@ -34,9 +30,11 @@ export const handleSignup = async (req , res) =>{
 		const hashedPassword = await bcrypt.hash(password, salt);
 
         const newUser = new userModel({
-            fullname,
-            username,
+            firstName,
+            lastName,
+            phoneNumber,
             email,
+            birthDate,
             password:hashedPassword
         })
 
@@ -46,9 +44,12 @@ export const handleSignup = async (req , res) =>{
 
             res.status(200).json({
                 _id: newUser._id,
-                fullname: newUser.fullname,
-                userName: newUser.username,
+                firstName: newUser.firstName,
+                lastName: newUser.lastName,
+                phoneNumber: newUser.phoneNumber,
                 email: newUser.email,
+                birthDate: newUser.birthDate,
+                message: "Signed Up Successfully"
             })
         } else {
             return res.status(400).json({error:"Invalid user data"})
