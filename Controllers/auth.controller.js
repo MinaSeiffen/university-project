@@ -78,7 +78,8 @@ export const handleLogin = async (req , res) =>{
             _id: user._id,
             username: user.username,
             email: user.email,
-            fullname: user.fullname
+            fullname: user.fullname,
+            message: "Logged in successfully"
         })
     } catch (error) {
         res.status(500).json({error: "Internal Server Error"})
