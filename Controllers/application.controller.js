@@ -35,3 +35,14 @@ export const postApplication = async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
+
+export const getAllApps = async (req, res) => {
+  const userId = req.user._id;
+  try {
+    const applications = await applicationModel.find({userId: userId})
+
+    res.status(200).json({ applications: applications})
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+}

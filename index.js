@@ -11,6 +11,7 @@ import {v2 as cloudinary} from 'cloudinary'
 import authRoutes from "./Routes/auth.route.js"
 import appRoutes from "./Routes/application.route.js"
 import contactRoutes from "./Routes/contacting.route.js"
+import userRoutes from './Routes/user.route.js'
 
 
 dotenv.config()
@@ -67,6 +68,7 @@ app.post('/upload/education', upload.single('file'), (req, res) => {
 app.use("/api/auth", authRoutes) 
 app.use("/api/application", appRoutes) 
 app.use("/api/contact", contactRoutes) 
+app.use("/api/user", userRoutes) 
 
 // Server Port listener
 app.listen(port, () => {
