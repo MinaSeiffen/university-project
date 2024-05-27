@@ -1,4 +1,5 @@
 import userModel from "../Models/user.model.js";
+import bcrypt from 'bcryptjs'
 
 export const updateProfile = async (req, res) => {
   try {
@@ -7,7 +8,7 @@ export const updateProfile = async (req, res) => {
     const userId = req.user._id;
 
     let user = await userModel.findById(userId);
-		if (!user) return res.status(404).json({ message: "User not found" });
+		if (!user) return res.status(404).json({ error: "User not found" });
 
 		if ((!newPassword && currentPassword) || (!currentPassword && newPassword)) {
 			return res.status(400).json({ error: "Please provide both current password and new password" });
