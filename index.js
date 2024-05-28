@@ -18,6 +18,9 @@ dotenv.config()
 const app = express()
 const port = process.env.PORT || 3000
 
+app.use(express.json({ limit: "5mb" }));
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 app.use(cors({
   origin: 'https://university-xli8.onrender.com',
@@ -26,9 +29,6 @@ app.use(cors({
   credentials: true
 }));
 
-app.use(express.json({ limit: "5mb" }));
-app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser());
 
 // Configure Cloudinary
 cloudinary.config({
