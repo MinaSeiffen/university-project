@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
-    "start": "cross-env NODE_ENV=production node index.js",
-    "build": "cross-env NODE_ENV=production npm install"
+    "start": "node index.js",
+    "build": "npm install"
   },
   "type": "module",
   "author": "",
