@@ -23,7 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use(cors({
-  origin: 'https://university-xli8.onrender.com',
+  origin: 'https://university-frontend-nine.vercel.app',
   methods: ['GET', 'POST', 'PUT', 'DELETE' , 'PATCH'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
