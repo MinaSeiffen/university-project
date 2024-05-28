@@ -26,7 +26,8 @@ app.use(cors({
   origin: 'https://university-frontend-nine.vercel.app',
   methods: ['GET', 'POST', 'PUT', 'DELETE' , 'PATCH'],
   allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true
+  credentials: true,
+  exposedHeaders: ["Set-Cookie"]
 }));
 
 
