@@ -5,6 +5,7 @@ export const postApplication = async (req, res) => {
     const {
       name,
       universityName,
+      imgSrc,
       phone,
       nationality,
       residence,
@@ -18,6 +19,7 @@ export const postApplication = async (req, res) => {
     const application = new applicationModel({
       name,
       universityName,
+      imgSrc,
       phone,
       nationality,
       residence,

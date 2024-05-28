@@ -3,6 +3,7 @@ import mongoose from "mongoose"
 const applicationSchema = new mongoose.Schema({
     name: {type: String , required: true},
     universityName: {type: String },
+    imgSrc: {type: String },
     phone: {type: String , required: true},
     nationality:{type: String , required: true},
     residence : {type: String , required: true},
