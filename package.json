@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon index.js",
     "start": "cross-env NODE_ENV=production node index.js",
-    "build": "cross-env NODE_ENV=production npm install && node index.js"
+    "build": "cross-env NODE_ENV=production npm install"
   },
   "type": "module",
   "author": "",
