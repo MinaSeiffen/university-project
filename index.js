@@ -68,7 +68,13 @@ app.post('/upload/education', upload.single('file'), (req, res) => {
 app.use("/api/auth", authRoutes) 
 app.use("/api/application", appRoutes) 
 app.use("/api/contact", contactRoutes) 
-app.use("/api/user", userRoutes) 
+app.use("/api/user", userRoutes)
+
+// Error handling
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
+});
 
 // Server Port listener
 app.listen(port, () => {
